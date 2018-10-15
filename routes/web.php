@@ -18,4 +18,6 @@ Route::get('/', function () {
 
 Route::get('/items', 'ItemsController@index');
 
+Route::get('/items/{id}', 'ItemsController@detail');
+
 Auth::routes();

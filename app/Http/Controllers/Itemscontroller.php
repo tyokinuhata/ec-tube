@@ -15,4 +15,11 @@ class Itemscontroller extends Controller
             'items' => $items
         ]);
     }
+
+    public function detail($id)
+    {
+        return view('detail', [
+            'id' => $id,
+        ]);
+    }
 }
