@@ -8,6 +8,7 @@
                 <p>{{ $item->name }}</p>
                 <p>{{ $item->description }}</p>
                 <a href="{{ '/items/' . $item->id }}" class="btn btn-primary">Detail</a>
+                <button type="button" class="btn btn-primary">Add to Cart</button>
             </div>
         @endforeach
     </div>
