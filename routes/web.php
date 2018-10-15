@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
+    if (Auth::check()) return redirect('items');
     return view('welcome');
+});
+
+Route::get('/items', function () {
+    return view('items');
 });
 
 Auth::routes();
