@@ -16,8 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/items', function () {
-    return view('items');
-});
+Route::get('/items', 'ItemsController@index');
 
 Auth::routes();
