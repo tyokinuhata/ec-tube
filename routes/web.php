@@ -20,4 +20,6 @@ Route::get('/items', 'ItemsController@index');
 
 Route::get('/items/{id}', 'ItemsController@detail');
 
+Route::get('/cart', 'CartController@index');
+
 Auth::routes();

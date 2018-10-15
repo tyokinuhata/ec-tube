@@ -62,6 +62,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <a href="{{ 'cart' }}" class="dropdown-item">
+                                        {{ __('Cart') }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest
