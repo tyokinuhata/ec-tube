@@ -13,21 +13,21 @@ class ItemsController extends Controller
     {
         $items = Item::all();
 
-        return view('items', [
+        return view('items.items', [
             'items' => $items
         ]);
     }
 
     public function detail($id)
     {
-        return view('detail', [
+        return view('items.detail', [
             'id' => $id,
         ]);
     }
 
     public function cart()
     {
-        return view('cart');
+        return view('items.cart');
     }
 
     public function add(Request $request)

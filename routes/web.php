@@ -26,6 +26,12 @@ Route::group([ 'prefix' => 'items', 'middleware' => 'auth' ], function () {
     Route::get('/cart', 'ItemsController@index');
 });
 
-Route::get('/user', 'UserController@index');
+Route::group([ 'prefix' => 'user', 'middleware' => 'auth' ], function () {
+    Route::get('/', 'UserController@index');
+
+    Route::get('/edit', 'UserController@edit');
+});
+
+
 
 Auth::routes();
