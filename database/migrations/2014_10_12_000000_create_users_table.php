@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('zip');
             $table->text('address');
-            $table->json('carts');
+            $table->json('carts')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
