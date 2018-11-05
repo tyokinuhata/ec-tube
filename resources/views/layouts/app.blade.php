@@ -63,8 +63,16 @@
                                         @csrf
                                     </form>
 
-                                    <a href="{{ 'cart' }}" class="dropdown-item">
+                                    <a href="{{ 'items' }}" class="dropdown-item">
+                                        {{ __('Items') }}
+                                    </a>
+
+                                    <a href="{{ 'items/cart' }}" class="dropdown-item">
                                         {{ __('Cart') }}
+                                    </a>
+
+                                    <a href="{{ 'user' }}" class="dropdown-item">
+                                        {{ __('User') }}
                                     </a>
                                 </div>
                             </li>

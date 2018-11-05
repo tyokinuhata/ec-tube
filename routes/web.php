@@ -26,4 +26,6 @@ Route::group([ 'prefix' => 'items', 'middleware' => 'auth' ], function () {
     Route::get('/cart', 'ItemsController@index');
 });
 
+Route::get('/user', 'UserController@index');
+
 Auth::routes();
