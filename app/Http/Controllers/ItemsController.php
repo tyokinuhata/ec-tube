@@ -18,6 +18,18 @@ class ItemsController extends Controller
         ]);
     }
 
+    public function detail($id)
+    {
+        return view('detail', [
+            'id' => $id,
+        ]);
+    }
+
+    public function cart()
+    {
+        return view('cart');
+    }
+
     public function add(Request $request)
     {
         // TODO: 手抜き実装です。許してください。

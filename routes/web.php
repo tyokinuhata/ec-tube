@@ -16,12 +16,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/items', 'ItemsController@index');
+Route::group([ 'prefix' => 'items', 'middleware' => 'auth' ], function () {
+    Route::get('/', 'ItemsController@index');
 
-Route::get('/items/{id}', 'ItemDetailsController@detail');
+    Route::get('/{id}', 'ItemsController@detail');
 
-Route::post('/items/add', 'ItemsController@add');
+    Route::post('/add', 'ItemsController@add');
 
-Route::get('/cart', 'CartController@index');
+    Route::get('/cart', 'ItemsController@index');
+});
 
 Auth::routes();
