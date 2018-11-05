@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    hogehoge
-    {{ $id }}
+    <div class="container">
+        {{ $id }}
+    </div>
 @endsection
-
