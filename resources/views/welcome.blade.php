@@ -83,6 +83,7 @@
                 <div class="title m-b-md">
                     EC-TUBE
                 </div>
+                <p>モノが集まる場所。</p>
             </div>
         </div>
     </body>
