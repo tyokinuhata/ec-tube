@@ -9,7 +9,11 @@
                     <p class="h4 mt-2">{{ $item->name }}</p>
                     <p>{{ $item->description }}</p>
                     <a href="{{ '/items/' . $item->id }}" class="btn btn-primary">Detail</a>
-                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                    <form method="POST" action="{{ url('/items/add') }}" class="d-inline">
+                        {{ csrf_field() }}
+                        <input type="hidden" value="{{ $item->id }}" name="item">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
                 </div>
             @endforeach
         </div>
