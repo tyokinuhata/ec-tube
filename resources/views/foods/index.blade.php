@@ -11,7 +11,8 @@
                     <form method="POST" action="{{ url('foods') }}" class="d-inline">
                         @csrf
                         <input type="hidden" value="{{ $food->id }}" name="item">
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        <input type="number" value="1" required class="form-control d-inline">
+                        <button type="submit" class="btn btn-primary d-inline">Add to Cart</button>
                     </form>
                 </div>
             @endforeach
