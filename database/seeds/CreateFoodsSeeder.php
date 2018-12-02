@@ -72,7 +72,7 @@ class CreateFoodsSeeder extends Seeder
 
         Food::create([
             'name' => 'サーモン',
-            'img' => 'storage/foods/salmon.png',
+            'img' => 'storage/foods/sushi_salmon.png',
             'description' => 'クロワッサンに挟むと美味しいよ。',
             'price' => 100,
         ]);

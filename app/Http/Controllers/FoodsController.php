@@ -4,30 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class FoodsController extends Controller
 {
     public function index()
     {
-        $items = Food::all();
+        $foods = Food::all();
 
-        return view('items.items', [
-            'items' => $items
-        ]);
-    }
-
-    public function detail($id)
-    {
-        return view('items.detail', [
-            'id' => $id,
+        return view('foods.index', [
+            'foods' => $foods
         ]);
     }
 
     public function cart()
     {
-        return view('items.cart');
+        return view('foods.cart');
     }
 
     public function add(Request $request)
@@ -39,6 +30,6 @@ class FoodsController extends Controller
 //        User::where('id', Auth::id())->update([
 //            'carts' => $carts
 //        ]);
-//        return redirect('/items');
+//        return redirect('/foods');
     }
 }

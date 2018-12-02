@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>EC-TUBE</title>
+    <title>SUSHI CUBE</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <div>EC-TUBE</div>
+                <div>SUSHI CUBE</div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,11 +57,11 @@
                                         @csrf
                                     </form>
 
-                                    <a href="{{ url('items') }}" class="dropdown-item">
-                                        {{ __('Items') }}
+                                    <a href="{{ url('foods') }}" class="dropdown-item">
+                                        {{ __('Menu') }}
                                     </a>
 
-                                    <a href="{{ url('items/cart') }}" class="dropdown-item">
+                                    <a href="{{ url('foods') }}" class="dropdown-item">
                                         {{ __('Cart') }}
                                     </a>
 

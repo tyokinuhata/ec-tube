@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    if (Auth::check()) return redirect('items');
+    if (Auth::check()) return redirect('foods');
     return view('welcome');
 });
 
-Route::group([ 'prefix' => 'items', 'middleware' => 'auth' ], function () {
+Route::group([ 'prefix' => 'foods', 'middleware' => 'auth' ], function () {
     Route::get('/', 'FoodsController@index');
 
     Route::get('/{id}', 'FoodsController@detail');
