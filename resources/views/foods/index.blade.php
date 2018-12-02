@@ -18,4 +18,15 @@
             @endforeach
         </div>
     </div>
+    <div class="lanes-wrapper">
+        <div class="lanes">
+            @foreach($foods as $food)
+                <div class="lane">
+                    <div class="dish">
+                        <img src="{{ $food->img }}" alt="" class="sushi">
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 @endsection
