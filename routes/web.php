@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::group([ 'prefix' => 'foods', 'middleware' => 'auth' ], function () {
     Route::get('/', 'FoodsController@index');
 
+    Route::get('/get', 'FoodsController@get');
+
     Route::post('/add', 'FoodsController@add');
 
     Route::get('/cart', 'FoodsController@index');

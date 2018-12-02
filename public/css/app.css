@@ -10,8 +10,8 @@
   display: inline-block;
   width: 2500px;
   background: #ad7d4c;
-  -webkit-animation: animation 20s linear 0s infinite;
-          animation: animation 20s linear 0s infinite;
+  -webkit-animation: animation 25s linear 0s infinite;
+          animation: animation 25s linear 0s infinite;
 }
 
 .lane {
