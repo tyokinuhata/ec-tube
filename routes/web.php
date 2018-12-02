@@ -17,13 +17,13 @@ Route::get('/', function () {
 });
 
 Route::group([ 'prefix' => 'items', 'middleware' => 'auth' ], function () {
-    Route::get('/', 'ItemsController@index');
+    Route::get('/', 'FoodsController@index');
 
-    Route::get('/{id}', 'ItemsController@detail');
+    Route::get('/{id}', 'FoodsController@detail');
 
-    Route::post('/add', 'ItemsController@add');
+    Route::post('/add', 'FoodsController@add');
 
-    Route::get('/cart', 'ItemsController@index');
+    Route::get('/cart', 'FoodsController@index');
 });
 
 Route::group([ 'prefix' => 'user', 'middleware' => 'auth' ], function () {
