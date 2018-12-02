@@ -33,12 +33,12 @@ class FoodsController extends Controller
     public function add(Request $request)
     {
         // TODO: 手抜き実装です。許してください。
-        $item = $request->item;
-        $carts = User::select('carts')->where('id', Auth::id())->first()->carts;
-        $carts .= $item . ',';
-        User::where('id', Auth::id())->update([
-            'carts' => $carts
-        ]);
-        return redirect('/items');
+//        $item = $request->item;
+//        $carts = User::select('carts')->where('id', Auth::id())->first()->carts;
+//        $carts .= $item . ',';
+//        User::where('id', Auth::id())->update([
+//            'carts' => $carts
+//        ]);
+//        return redirect('/items');
     }
 }
