@@ -81,9 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    EC-TUBE
+                    SUSHI CUBE
                 </div>
-                <p>モノが集まる場所。</p>
+                <p>お寿司屋さん</p>
             </div>
         </div>
     </body>
