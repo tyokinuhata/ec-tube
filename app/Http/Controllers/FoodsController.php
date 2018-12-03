@@ -21,12 +21,10 @@ class FoodsController extends Controller
 
     public function add(Request $request)
     {
-
-        $hoge = Cart::create([
+        Cart::create([
             'number' => $request->number,
             'user_id' => $request->id,
         ]);
-        dd($hoge);
     }
 
     public function cart(Request $request)
