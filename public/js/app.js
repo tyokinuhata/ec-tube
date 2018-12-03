@@ -47433,11 +47433,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      cart: {
+        id: 1,
+        number: 1
+      },
+      user: [],
       muchSushi: []
     };
   },
   mounted: function mounted() {
     this.getSushi();
+    this.getUser();
   },
 
   methods: {
@@ -47446,6 +47452,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       axios.get('/foods/get').then(function (res) {
         _this.muchSushi = res.data;
+      });
+    },
+    getUser: function getUser() {
+      var _this2 = this;
+
+      axios.get('/user').then(function (res) {
+        _this2.user = res.data;
+      });
+    },
+    changeCartId: function changeCartId(id) {
+      this.cart.id = id;
+    },
+    addCart: function addCart() {
+      axios.post('/foods/add', {
+        'id': this.cart.id,
+        'number': this.cart.number,
+        'user_id': this.user.id
       });
     }
   }
@@ -47474,6 +47497,11 @@ var render = function() {
                   alt: "",
                   "data-toggle": "modal",
                   "data-target": "#modal" + sushi.id
+                },
+                on: {
+                  click: function($event) {
+                    _vm.changeCartId(sushi.id)
+                  }
                 }
               })
             ]),
@@ -47510,7 +47538,48 @@ var render = function() {
                         _c("p", [_vm._v(_vm._s(sushi.description))])
                       ]),
                       _vm._v(" "),
-                      _vm._m(1, true)
+                      _c("div", { staticClass: "modal-footer" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-secondary",
+                            attrs: { type: "button", "data-dismiss": "modal" }
+                          },
+                          [_vm._v("食べない")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cart.number,
+                              expression: "cart.number"
+                            }
+                          ],
+                          staticClass: "form-control d-inline col-md-3",
+                          attrs: { type: "number", name: "number", min: "1" },
+                          domProps: { value: _vm.cart.number },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.cart, "number", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button" },
+                            on: { click: _vm.addCart }
+                          },
+                          [_vm._v("食べる！")]
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -47532,32 +47601,6 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [_vm._v("食べますか？")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("食べない")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control d-inline col-md-3",
-        attrs: { type: "number", name: "number", value: "1", min: "1" }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("食べる！")]
       )
     ])
   }

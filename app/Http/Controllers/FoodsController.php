@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Cart;
 
 class FoodsController extends Controller
 {
@@ -12,7 +13,7 @@ class FoodsController extends Controller
         return view('foods.index');
     }
 
-    public function get()
+    public function foods()
     {
         $foods = Food::all();
         return json_encode($foods);
@@ -20,11 +21,21 @@ class FoodsController extends Controller
 
     public function add(Request $request)
     {
-//        return redirect('/foods');
+        return $request;
+//        Cart::create([
+//            'id' => $request->id,
+//            'number' => $request->number,
+//            'user_id' => $request->id,
+//        ]);
     }
 
-    public function cart()
+    public function cart(Request $request)
     {
+        Cart::create([
+            'id' => $request->id,
+            'number' => $request->number,
+        ]);
+
         return view('foods.cart');
     }
 }

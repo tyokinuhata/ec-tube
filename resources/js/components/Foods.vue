@@ -4,7 +4,7 @@
             <div class="lanes">
                 <div class="lane" v-for="sushi in muchSushi">
                     <div class="dish">
-                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + sushi.id">
+                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + sushi.id" @click="changeCartId(sushi.id)">
                     </div>
 
                     <div class="modal fade" :id="'modal' + sushi.id" tabindex="-1" role="dialog" :aria-labelledby="'modalLabel' + sushi.id" aria-hidden="true">
@@ -20,8 +20,8 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">食べない</button>
-                                    <input type="number" class="form-control d-inline col-md-3" name="number" value="1" min="1">
-                                    <button type="submit" class="btn btn-primary">食べる！</button>
+                                    <input type="number" class="form-control d-inline col-md-3" name="number" v-model="cart.number" min="1">
+                                    <button type="button" class="btn btn-primary" @click="addCart">食べる！</button>
                                 </div>
                             </div>
                         </div>
@@ -36,18 +36,40 @@
 export default {
   data() {
     return {
+      cart: {
+        id: 1,
+        number: 1,
+      },
+      user: [],
       muchSushi: []
     }
   },
   mounted() {
     this.getSushi()
+    this.getUser()
   },
   methods: {
     getSushi() {
       axios.get('/foods/get')
-        .then((res) => {
+        .then(res => {
           this.muchSushi = res.data
-        });
+        })
+    },
+    getUser() {
+      axios.get('/user')
+        .then(res => {
+          this.user = res.data
+        })
+    },
+    changeCartId(id) {
+      this.cart.id = id
+    },
+    addCart() {
+      axios.post('/foods/add', {
+        'id': this.cart.id,
+        'number': this.cart.number,
+        'user_id': this.user.id,
+      })
     }
   }
 }
