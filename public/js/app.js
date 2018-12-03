@@ -47429,6 +47429,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -47437,6 +47438,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         id: 1,
         number: 1
       },
+      msg: '',
       user: [],
       muchSushi: []
     };
@@ -47463,12 +47465,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     changeCartId: function changeCartId(id) {
       this.cart.id = id;
+      this.msg = '';
     },
     addCart: function addCart() {
+      var _this3 = this;
+
       axios.post('/foods/add', {
         'id': this.cart.id,
         'number': this.cart.number,
         'user_id': this.user.id
+      }).then(function (res) {
+        _this3.msg = '食べました！';
       });
     }
   }
@@ -47578,7 +47585,9 @@ var render = function() {
                             on: { click: _vm.addCart }
                           },
                           [_vm._v("食べる！")]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(_vm.msg))])
                       ])
                     ])
                   ]

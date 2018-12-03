@@ -22,6 +22,7 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">食べない</button>
                                     <input type="number" class="form-control d-inline col-md-3" name="number" v-model="cart.number" min="1">
                                     <button type="button" class="btn btn-primary" @click="addCart">食べる！</button>
+                                    <p>{{ msg }}</p>
                                 </div>
                             </div>
                         </div>
@@ -40,6 +41,7 @@ export default {
         id: 1,
         number: 1,
       },
+      msg: '',
       user: [],
       muchSushi: []
     }
@@ -63,6 +65,7 @@ export default {
     },
     changeCartId(id) {
       this.cart.id = id
+      this.msg = ''
     },
     addCart() {
       axios.post('/foods/add', {
@@ -70,6 +73,9 @@ export default {
         'number': this.cart.number,
         'user_id': this.user.id,
       })
+        .then(res => {
+          this.msg = '食べました！'
+        })
     }
   }
 }
