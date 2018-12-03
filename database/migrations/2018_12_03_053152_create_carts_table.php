@@ -18,8 +18,6 @@ class CreateCartsTable extends Migration
             $table->unsignedInteger('number');
             $table->unsignedInteger('user_id');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
