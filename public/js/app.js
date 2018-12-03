@@ -47489,116 +47489,122 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "lanes-wrapper" }, [
-      _c(
-        "div",
-        { staticClass: "lanes" },
-        _vm._l(_vm.muchSushi, function(sushi) {
-          return _c("div", { staticClass: "lane" }, [
-            _c("div", { staticClass: "dish" }, [
-              _c("img", {
-                staticClass: "sushi",
-                attrs: {
-                  src: sushi.img,
-                  alt: "",
-                  "data-toggle": "modal",
-                  "data-target": "#modal" + sushi.id
-                },
-                on: {
-                  click: function($event) {
-                    _vm.changeCartId(sushi.id)
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "lanes-wrapper" }, [
+        _c(
+          "div",
+          { staticClass: "lanes lanes1" },
+          _vm._l(_vm.muchSushi, function(sushi) {
+            return _c("div", { staticClass: "lane" }, [
+              _c("div", { staticClass: "dish" }, [
+                _c("img", {
+                  staticClass: "sushi",
+                  attrs: {
+                    src: sushi.img,
+                    alt: "",
+                    "data-toggle": "modal",
+                    "data-target": "#modal" + sushi.id
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.changeCartId(sushi.id)
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
+                })
+              ])
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.muchSushi, function(sushi) {
+        return _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "modal" + sushi.id,
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "modalLabel" + sushi.id,
+              "aria-hidden": "true"
+            }
+          },
+          [
             _c(
               "div",
-              {
-                staticClass: "modal fade",
-                attrs: {
-                  id: "modal" + sushi.id,
-                  tabindex: "-1",
-                  role: "dialog",
-                  "aria-labelledby": "modalLabel" + sushi.id,
-                  "aria-hidden": "true"
-                }
-              },
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
-                _c(
-                  "div",
-                  { staticClass: "modal-dialog", attrs: { role: "document" } },
-                  [
-                    _c("div", { staticClass: "modal-content" }, [
-                      _vm._m(0, true),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-body" }, [
-                        _c("p", { staticClass: "h4 mt-2" }, [
-                          _vm._v(_vm._s(sushi.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("img", {
-                          attrs: { src: sushi.img, alt: "", width: "100" }
-                        }),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(sushi.description))])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-footer" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-secondary",
-                            attrs: { type: "button", "data-dismiss": "modal" }
-                          },
-                          [_vm._v("食べない")]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.cart.number,
-                              expression: "cart.number"
-                            }
-                          ],
-                          staticClass: "form-control d-inline col-md-3",
-                          attrs: { type: "number", name: "number", min: "1" },
-                          domProps: { value: _vm.cart.number },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.cart, "number", $event.target.value)
-                            }
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(0, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("p", { staticClass: "h4 mt-2" }, [
+                      _vm._v(_vm._s(sushi.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: { src: sushi.img, alt: "", width: "100" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(sushi.description))])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("食べない")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cart.number,
+                          expression: "cart.number"
+                        }
+                      ],
+                      staticClass: "form-control d-inline col-md-3",
+                      attrs: { type: "number", name: "number", min: "1" },
+                      domProps: { value: _vm.cart.number },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { type: "button" },
-                            on: { click: _vm.addCart }
-                          },
-                          [_vm._v("食べる！")]
-                        ),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.msg))])
-                      ])
-                    ])
-                  ]
-                )
+                          _vm.$set(_vm.cart, "number", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" },
+                        on: { click: _vm.addCart }
+                      },
+                      [_vm._v("食べる！")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.msg))])
+                  ])
+                ])
               ]
             )
-          ])
-        })
-      )
-    ])
-  ])
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
