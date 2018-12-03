@@ -26,7 +26,6 @@ Route::group([ 'prefix' => 'foods', 'middleware' => 'auth' ], function () {
     Route::get('/cart', 'FoodsController@cart');
 });
 
-// API
 Route::get('/user', 'UserController@user');
 
 Auth::routes();
