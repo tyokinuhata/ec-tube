@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use Auth;
-use DB;
 
 class CartsController extends Controller
 {
@@ -19,9 +18,14 @@ class CartsController extends Controller
             return $cart->number * $cart->food->price;
         });
 
-        return view('foods.cart', [
+        return view('carts.index', [
             'carts' => $carts,
         ]);
+    }
+
+    public function arigato()
+    {
+        return view('carts.arigato');
     }
 
     public function store(Request $request)
@@ -51,5 +55,12 @@ class CartsController extends Controller
         });
 
         return $count;
+    }
+
+    public function oaiso()
+    {
+        Cart::where('user_id', Auth::user()->id)->delete();
+
+        return redirect('/carts/arigato');
     }
 }
