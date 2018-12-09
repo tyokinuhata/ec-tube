@@ -47574,7 +47574,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getSushi: function getSushi() {
       var _this = this;
 
-      axios.get('/foods/get').then(function (res) {
+      axios.get('/foods/list').then(function (res) {
         _this.muchSushi = res.data;
       });
     },
@@ -47592,7 +47592,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     addCart: function addCart() {
       var _this3 = this;
 
-      axios.post('/foods/add', {
+      axios.post('/carts/store', {
         'number': this.cart.number,
         'user_id': this.user.id,
         'food_id': this.cart.id

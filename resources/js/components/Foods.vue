@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     getSushi() {
-      axios.get('/foods/get')
+      axios.get('/foods/list')
         .then(res => {
           this.muchSushi = res.data
         })
@@ -68,7 +68,7 @@ export default {
       this.msg = ''
     },
     addCart() {
-      axios.post('/foods/add', {
+      axios.post('/carts/store', {
         'number': this.cart.number,
         'user_id': this.user.id,
         'food_id': this.cart.id,

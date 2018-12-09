@@ -59,7 +59,7 @@
 
                                     <a href="{{ url('foods') }}" class="dropdown-item">メニュー</a>
 
-                                    <a href="{{ url('foods/cart') }}" class="dropdown-item">カート</a>
+                                    <a href="{{ url('carts') }}" class="dropdown-item">カート</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
                                 </div>

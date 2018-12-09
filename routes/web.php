@@ -19,11 +19,13 @@ Route::get('/', function () {
 Route::group([ 'prefix' => 'foods', 'middleware' => 'auth' ], function () {
     Route::get('/', 'FoodsController@index');
 
-    Route::get('/get', 'FoodsController@foods');
+    Route::get('/list', 'FoodsController@list');
+});
 
-    Route::post('/add', 'FoodsController@add');
+Route::group([ 'prefix' => 'carts', 'middleware' => 'auth' ], function () {
+    Route::get('/', 'CartsController@index');
 
-    Route::get('/cart', 'FoodsController@carts');
+    Route::post('/store', 'CartsController@store');
 });
 
 Route::get('/user', 'UserController@user');
