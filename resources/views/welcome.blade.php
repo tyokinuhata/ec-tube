@@ -70,10 +70,10 @@
                     @auth
                         <a href="{{ url('/') }}">Top</a>
                     @else
-                        <a href="{{ route('login') }}">ログイン</a>
+                        <a href="{{ route('login') }}">店に入る</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">登録</a>
+                            <a href="{{ route('register') }}">店に入る(はじめて)</a>
                         @endif
                     @endauth
                 </div>
@@ -81,9 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SUSHI CUBE
+                    SUSHI 🍣 CUBE
                 </div>
-                <p>お寿司屋さん</p>
+                <p>ヘイ！らっしゃい！</p>
             </div>
         </div>
     </body>

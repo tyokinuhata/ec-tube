@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <div>SUSHI CUBE</div>
+                <div>SUSHI 🍣 CUBE</div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,11 +39,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                                <a class="nav-link" href="{{ route('login') }}">店に入る</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">登録</a>
+                                    <a class="nav-link" href="{{ route('register') }}">店に入る(はじめて)</a>
                                 @endif
                             </li>
                         @else
@@ -57,11 +57,11 @@
                                         @csrf
                                     </form>
 
-                                    <a href="{{ url('foods') }}" class="dropdown-item">メニュー</a>
+                                    <a href="{{ url('foods') }}" class="dropdown-item">寿司を食う</a>
 
-                                    <a href="{{ url('carts') }}" class="dropdown-item">カート</a>
+                                    <a href="{{ url('carts') }}" class="dropdown-item">おあいそ</a>
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">店から出る</a>
                                 </div>
                             </li>
                         @endguest

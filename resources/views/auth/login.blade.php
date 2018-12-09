@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ログイン</div>
+                <div class="card-header">お客様情報入力</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -51,7 +51,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">ログイン</button>
+                                <button type="submit" class="btn btn-primary">店に入る</button>
                             </div>
                         </div>
                     </form>

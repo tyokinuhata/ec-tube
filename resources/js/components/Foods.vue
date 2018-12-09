@@ -112,7 +112,7 @@ export default {
       })
         .then(res => {
           this.dishes += Number(this.cart.number)
-          this.msg = '食べました！'
+          this.msg = 'ヘイ！らっしゃい！'
         })
     }
   }

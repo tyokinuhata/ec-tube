@@ -47636,7 +47636,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'food_id': this.cart.id
       }).then(function (res) {
         _this4.dishes += Number(_this4.cart.number);
-        _this4.msg = '食べました！';
+        _this4.msg = 'ヘイ！らっしゃい！';
       });
     }
   }
