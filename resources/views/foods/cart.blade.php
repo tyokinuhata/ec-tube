@@ -10,15 +10,15 @@
                         <img src="{{ url($cart->food->img) }}" alt="">
                     </td>
                     <td>{{ $cart->food->name }}</td>
-                    <td>{{ $cart->number }}</td>
-                    <td>{{ $cart->food->price }}円</td>
+                    <td>{{ $cart->number }}皿</td>
+                    <td>{{ $cart->food->price * $cart->number }}円</td>
                 </tr>
             @endforeach
             <tr>
                 <td>合計</td>
                 <td></td>
                 <td></td>
-                <td>円</td>
+                <td>{{ $carts->total_price }}円</td>
             </tr>
         </table>
         <button class="btn btn-primary">おあいそ</button>
