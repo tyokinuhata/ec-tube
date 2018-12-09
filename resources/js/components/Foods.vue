@@ -23,7 +23,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">食べない</button>
-                        <input type="number" class="form-control d-inline col-md-3" name="number" v-model="cart.number" min="1">
+                        <input type="number" class="form-control d-inline col-md-3" name="number" v-model="cart.number" min="1" max="10" required>
                         <button type="button" class="btn btn-primary" @click="addCart">食べる！</button>
                         <p>{{ msg }}</p>
                     </div>

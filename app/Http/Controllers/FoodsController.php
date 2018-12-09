@@ -29,11 +29,6 @@ class FoodsController extends Controller
 
     public function cart(Request $request)
     {
-        Cart::create([
-            'id' => $request->id,
-            'number' => $request->number,
-        ]);
-
         return view('foods.cart');
     }
 }

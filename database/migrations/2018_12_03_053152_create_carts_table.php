@@ -17,7 +17,11 @@ class CreateCartsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('number');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('food_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('food_id')->references('id')->on('foods');
         });
     }
 
