@@ -69,9 +69,9 @@ export default {
     },
     addCart() {
       axios.post('/foods/add', {
-        'id': this.cart.id,
         'number': this.cart.number,
         'user_id': this.user.id,
+        'food_id': this.cart.id,
       })
         .then(res => {
           this.msg = '食べました！'

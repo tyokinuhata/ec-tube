@@ -23,7 +23,8 @@ class FoodsController extends Controller
     {
         Cart::create([
             'number' => $request->number,
-            'user_id' => $request->id,
+            'user_id' => $request->user_id,
+            'food_id' => $request->food_id,
         ]);
     }
 

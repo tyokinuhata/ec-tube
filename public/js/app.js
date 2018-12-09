@@ -47593,9 +47593,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this3 = this;
 
       axios.post('/foods/add', {
-        'id': this.cart.id,
         'number': this.cart.number,
-        'user_id': this.user.id
+        'user_id': this.user.id,
+        'food_id': this.cart.id
       }).then(function (res) {
         _this3.msg = '食べました！';
       });
