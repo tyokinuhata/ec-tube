@@ -42,7 +42,7 @@
         </div>
 
         <div class="container">
-            <p>現在{{ dishes }}枚！</p>
+            <p class="text-right mt-2 h3">🍣 現在{{ dishes }}枚食べました 🍣</p>
         </div>
     </div>
 </template>
@@ -111,7 +111,7 @@ export default {
         'food_id': this.cart.id,
       })
         .then(res => {
-          this.dishes += this.cart.number
+          this.dishes += Number(this.cart.number)
           this.msg = '食べました！'
         })
     }

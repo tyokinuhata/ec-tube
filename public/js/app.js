@@ -47635,7 +47635,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'user_id': this.user.id,
         'food_id': this.cart.id
       }).then(function (res) {
-        _this4.dishes += _this4.cart.number;
+        _this4.dishes += Number(_this4.cart.number);
         _this4.msg = '食べました！';
       });
     }
@@ -47802,7 +47802,9 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _c("p", [_vm._v("現在" + _vm._s(_vm.dishes) + "枚！")])
+        _c("p", { staticClass: "text-right mt-2 h3" }, [
+          _vm._v("🍣 現在" + _vm._s(_vm.dishes) + "枚食べました 🍣")
+        ])
       ])
     ],
     2
