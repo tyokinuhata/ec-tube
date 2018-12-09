@@ -2,7 +2,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 220px;
 }
 
 .lanes {
@@ -19,7 +19,7 @@
   border-radius: 50% 10% 10% 50%;
   width: 200px;
   height: 200px;
-  margin: 0;
+  margin: 10px 0;
   background: #deb068;
 }
 
