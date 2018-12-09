@@ -23,7 +23,7 @@ Route::group([ 'prefix' => 'foods', 'middleware' => 'auth' ], function () {
 
     Route::post('/add', 'FoodsController@add');
 
-    Route::get('/cart', 'FoodsController@cart');
+    Route::get('/cart', 'FoodsController@carts');
 });
 
 Route::get('/user', 'UserController@user');

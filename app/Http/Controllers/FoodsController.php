@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Food;
 use App\Models\Cart;
+use App\Models\User;
+use Auth;
 
 class FoodsController extends Controller
 {
@@ -28,8 +30,14 @@ class FoodsController extends Controller
         ]);
     }
 
-    public function cart(Request $request)
+    public function carts()
     {
-        return view('foods.cart');
+        $carts = Cart::whereHas('user', function ($query) {
+            $query->where('id', Auth::user()->id);
+        })->get();
+
+        return view('foods.cart', [
+            'carts' => $carts,
+        ]);
     }
 }
