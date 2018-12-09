@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CartsStoreRequest;
 use App\Models\Cart;
 use Auth;
 
@@ -28,7 +28,7 @@ class CartsController extends Controller
         return view('carts.arigato');
     }
 
-    public function store(Request $request)
+    public function store(CartsStoreRequest $request)
     {
         Cart::updateOrCreate([
             'user_id' => $request->user_id,
