@@ -8,20 +8,119 @@
 .lanes {
   position: absolute;
   display: inline-block;
-  width: 2500px;
+  width: 4000px;
   background: #ad7d4c;
-  -webkit-animation: animation 25s linear 0s infinite;
-          animation: animation 25s linear 0s infinite;
 }
 
 .lane {
   position: relative;
   display: inline-block;
+  visibility: hidden;
   border-radius: 50% 10% 10% 50%;
   width: 200px;
   height: 200px;
   margin: 0;
   background: #deb068;
+}
+
+.lane0 {
+  -webkit-animation: animation 25s linear 0s infinite;
+          animation: animation 25s linear 0s infinite;
+}
+
+.lane1 {
+  -webkit-animation: animation 25s linear 0.4s infinite;
+          animation: animation 25s linear 0.4s infinite;
+}
+
+.lane2 {
+  -webkit-animation: animation 25s linear 0.8s infinite;
+          animation: animation 25s linear 0.8s infinite;
+}
+
+.lane3 {
+  -webkit-animation: animation 25s linear 1.2s infinite;
+          animation: animation 25s linear 1.2s infinite;
+}
+
+.lane4 {
+  -webkit-animation: animation 25s linear 1.6s infinite;
+          animation: animation 25s linear 1.6s infinite;
+}
+
+.lane5 {
+  -webkit-animation: animation 25s linear 2s infinite;
+          animation: animation 25s linear 2s infinite;
+}
+
+.lane6 {
+  -webkit-animation: animation 25s linear 2.4s infinite;
+          animation: animation 25s linear 2.4s infinite;
+}
+
+.lane7 {
+  -webkit-animation: animation 25s linear 2.8s infinite;
+          animation: animation 25s linear 2.8s infinite;
+}
+
+.lane8 {
+  -webkit-animation: animation 25s linear 3.2s infinite;
+          animation: animation 25s linear 3.2s infinite;
+}
+
+.lane9 {
+  -webkit-animation: animation 25s linear 3.6s infinite;
+          animation: animation 25s linear 3.6s infinite;
+}
+
+.lane10 {
+  -webkit-animation: animation 25s linear 4s infinite;
+          animation: animation 25s linear 4s infinite;
+}
+
+.lane11 {
+  -webkit-animation: animation 25s linear 4.4s infinite;
+          animation: animation 25s linear 4.4s infinite;
+}
+
+.lane12 {
+  -webkit-animation: animation 25s linear 4.8s infinite;
+          animation: animation 25s linear 4.8s infinite;
+}
+
+.lane13 {
+  -webkit-animation: animation 25s linear 5.2s infinite;
+          animation: animation 25s linear 5.2s infinite;
+}
+
+.lane14 {
+  -webkit-animation: animation 25s linear 5.6s infinite;
+          animation: animation 25s linear 5.6s infinite;
+}
+
+.lane15 {
+  -webkit-animation: animation 25s linear 6s infinite;
+          animation: animation 25s linear 6s infinite;
+}
+
+.lane16 {
+  -webkit-animation: animation 25s linear 6.4s infinite;
+          animation: animation 25s linear 6.4s infinite;
+}
+
+.lane17 {
+  -webkit-animation: animation 25s linear 6.8s infinite;
+          animation: animation 25s linear 6.8s infinite;
+}
+
+.lane18 {
+  -webkit-animation: animation 25s linear 7.2s infinite;
+          animation: animation 25s linear 7.2s infinite;
+}
+
+.lane19 {
+  -webkit-animation: animation 25s linear 7.6s infinite;
+          animation: animation 25s linear 7.6s infinite;
 }
 
 .dish {
@@ -45,21 +144,23 @@
 
 @-webkit-keyframes animation {
   0% {
-    left: 100%;
+    visibility: visible;
+    left: 60%;
   }
 
   100% {
-    left: -170%;
+    left: -100%;
   }
 }
 
 @keyframes animation {
   0% {
-    left: 100%;
+    visibility: visible;
+    left: 60%;
   }
 
   100% {
-    left: -170%;
+    left: -100%;
   }
 }
 

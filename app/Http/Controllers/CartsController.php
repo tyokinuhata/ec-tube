@@ -34,4 +34,17 @@ class CartsController extends Controller
             'food_id' => $request->food_id,
         ]);
     }
+
+    public function count()
+    {
+        $carts = Cart::select('number')->whereHas('user', function ($query) {
+            $query->where('id', Auth::user()->id);
+        })->get();
+
+        $count = $carts->sum(function ($cart) {
+            return $cart->number;
+        });
+
+        return $count;
+    }
 }

@@ -1,16 +1,16 @@
 <template>
     <div>
         <div class="lanes-wrapper">
-            <div class="lanes lanes1">
-                <div class="lane" v-for="sushi in muchSushi">
-                    <div class="dish">
-                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + sushi.id" @click="changeCartId(sushi.id)">
+            <div class="lanes">
+                <div class="lane" :class="'lane' + index" v-for="(sushi, index) in muchSushi">
+                    <div v-if="sushi.id !== 0" class="dish">
+                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + index" @click="changeCartId(sushi.id)">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" :id="'modal' + sushi.id" tabindex="-1" role="dialog" :aria-labelledby="'modalLabel' + sushi.id" aria-hidden="true" v-for="sushi in muchSushi">
+        <div class="modal fade" :id="'modal' + index" tabindex="-1" role="dialog" :aria-labelledby="'modalLabel' + index" aria-hidden="true" v-for="(sushi, index) in muchSushi">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -43,18 +43,33 @@ export default {
       },
       msg: '',
       user: [],
-      muchSushi: []
+      muchSushi: [],
+      dishes: 0,
     }
   },
   mounted() {
     this.getSushi()
     this.getUser()
+    this.getCartCount()
   },
   methods: {
     getSushi() {
       axios.get('/foods/list')
         .then(res => {
-          this.muchSushi = res.data
+          let muchSushi = res.data
+          const data = {
+            'id': 0,
+            'name': '',
+            'description': '',
+            'img': '',
+            'price': '',
+          }
+          let offset
+          for (let i = 0; i < 8; i++) {
+            offset = Math.floor(Math.random() * 11)
+            muchSushi.splice(offset, 0, data)
+          }
+          this.muchSushi = muchSushi
         })
     },
     getUser() {
@@ -66,6 +81,12 @@ export default {
     changeCartId(id) {
       this.cart.id = id
       this.msg = ''
+    },
+    getCartCount() {
+      axios.get('/carts/count')
+        .then(res => {
+          this.dishes = res.data
+        })
     },
     addCart() {
       axios.post('/carts/store', {

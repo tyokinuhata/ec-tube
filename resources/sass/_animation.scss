@@ -8,20 +8,79 @@
 .lanes {
   position: absolute;
   display: inline-block;
-  width: 2500px;
+  width: 4000px;
   background: #ad7d4c;
-  animation: animation 25s linear 0s infinite;
 }
 
 .lane {
   position: relative;
   display: inline-block;
+  visibility: hidden;
   border-radius: 50% 10% 10% 50%;
   width: 200px;
   height: 200px;
   margin: 0;
   background: #deb068;
-
+  &0 {
+    animation: animation 25s linear 0s infinite;
+  }
+  &1 {
+    animation: animation 25s linear 0.4s infinite;
+  }
+  &2 {
+    animation: animation 25s linear 0.8s infinite;
+  }
+  &3 {
+    animation: animation 25s linear 1.2s infinite;
+  }
+  &4 {
+    animation: animation 25s linear 1.6s infinite;
+  }
+  &5 {
+    animation: animation 25s linear 2s infinite;
+  }
+  &6 {
+    animation: animation 25s linear 2.4s infinite;
+  }
+  &7 {
+    animation: animation 25s linear 2.8s infinite;
+  }
+  &8 {
+    animation: animation 25s linear 3.2s infinite;
+  }
+  &9 {
+    animation: animation 25s linear 3.6s infinite;
+  }
+  &10 {
+    animation: animation 25s linear 4s infinite;
+  }
+  &11 {
+    animation: animation 25s linear 4.4s infinite;
+  }
+  &12 {
+    animation: animation 25s linear 4.8s infinite;
+  }
+  &13 {
+    animation: animation 25s linear 5.2s infinite;
+  }
+  &14 {
+    animation: animation 25s linear 5.6s infinite;
+  }
+  &15 {
+    animation: animation 25s linear 6s infinite;
+  }
+  &16 {
+    animation: animation 25s linear 6.4s infinite;
+  }
+  &17 {
+    animation: animation 25s linear 6.8s infinite;
+  }
+  &18 {
+    animation: animation 25s linear 7.2s infinite;
+  }
+  &19 {
+    animation: animation 25s linear 7.6s infinite;
+  }
 }
 
 .dish {
@@ -45,9 +104,10 @@
 
 @keyframes animation {
   0% {
-    left: 100%;
+    visibility: visible;
+    left: 60%;
   }
   100% {
-    left: -170%;
+    left: -100%;
   }
 }

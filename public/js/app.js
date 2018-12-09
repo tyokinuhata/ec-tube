@@ -47562,12 +47562,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       msg: '',
       user: [],
-      muchSushi: []
+      muchSushi: [],
+      dishes: 0
     };
   },
   mounted: function mounted() {
     this.getSushi();
     this.getUser();
+    this.getCartCount();
   },
 
   methods: {
@@ -47575,7 +47577,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.get('/foods/list').then(function (res) {
-        _this.muchSushi = res.data;
+        var muchSushi = res.data;
+        var data = {
+          'id': 0,
+          'name': '',
+          'description': '',
+          'img': '',
+          'price': ''
+        };
+        var offset = void 0;
+        for (var i = 0; i < 8; i++) {
+          offset = Math.floor(Math.random() * 11);
+          muchSushi.splice(offset, 0, data);
+        }
+        _this.muchSushi = muchSushi;
       });
     },
     getUser: function getUser() {
@@ -47589,15 +47604,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.cart.id = id;
       this.msg = '';
     },
-    addCart: function addCart() {
+    getCartCount: function getCartCount() {
       var _this3 = this;
+
+      axios.get('/carts/count').then(function (res) {
+        _this3.dishes = res.data;
+      });
+    },
+    addCart: function addCart() {
+      var _this4 = this;
 
       axios.post('/carts/store', {
         'number': this.cart.number,
         'user_id': this.user.id,
         'food_id': this.cart.id
       }).then(function (res) {
-        _this3.msg = '食べました！';
+        _this4.msg = '食べました！';
       });
     }
   }
@@ -47617,40 +47639,42 @@ var render = function() {
       _c("div", { staticClass: "lanes-wrapper" }, [
         _c(
           "div",
-          { staticClass: "lanes lanes1" },
-          _vm._l(_vm.muchSushi, function(sushi) {
-            return _c("div", { staticClass: "lane" }, [
-              _c("div", { staticClass: "dish" }, [
-                _c("img", {
-                  staticClass: "sushi",
-                  attrs: {
-                    src: sushi.img,
-                    alt: "",
-                    "data-toggle": "modal",
-                    "data-target": "#modal" + sushi.id
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.changeCartId(sushi.id)
-                    }
-                  }
-                })
-              ])
+          { staticClass: "lanes" },
+          _vm._l(_vm.muchSushi, function(sushi, index) {
+            return _c("div", { staticClass: "lane", class: "lane" + index }, [
+              sushi.id !== 0
+                ? _c("div", { staticClass: "dish" }, [
+                    _c("img", {
+                      staticClass: "sushi",
+                      attrs: {
+                        src: sushi.img,
+                        alt: "",
+                        "data-toggle": "modal",
+                        "data-target": "#modal" + index
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.changeCartId(sushi.id)
+                        }
+                      }
+                    })
+                  ])
+                : _vm._e()
             ])
           })
         )
       ]),
       _vm._v(" "),
-      _vm._l(_vm.muchSushi, function(sushi) {
+      _vm._l(_vm.muchSushi, function(sushi, index) {
         return _c(
           "div",
           {
             staticClass: "modal fade",
             attrs: {
-              id: "modal" + sushi.id,
+              id: "modal" + index,
               tabindex: "-1",
               role: "dialog",
-              "aria-labelledby": "modalLabel" + sushi.id,
+              "aria-labelledby": "modalLabel" + index,
               "aria-hidden": "true"
             }
           },

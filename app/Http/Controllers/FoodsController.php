@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
-use Auth;
 
 class FoodsController extends Controller
 {
@@ -14,7 +13,7 @@ class FoodsController extends Controller
 
     public function list()
     {
-        $foods = Food::all();
+        $foods = Food::select('id', 'name', 'description', 'img', 'price')->get();
         return json_encode($foods);
     }
 }

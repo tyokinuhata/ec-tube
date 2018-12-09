@@ -26,6 +26,8 @@ Route::group([ 'prefix' => 'carts', 'middleware' => 'auth' ], function () {
     Route::get('/', 'CartsController@index');
 
     Route::post('/store', 'CartsController@store');
+
+    Route::get('/count', 'CartsController@count');
 });
 
 Route::get('/user', 'UserController@user');
