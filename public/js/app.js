@@ -47552,6 +47552,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -47562,7 +47572,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       msg: '',
       user: [],
-      muchSushi: [],
+      muchSushiA: [],
+      muchSushiB: [],
       dishes: 0
     };
   },
@@ -47585,12 +47596,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           'img': '',
           'price': ''
         };
-        var offset = void 0;
+
         for (var i = 0; i < 8; i++) {
-          offset = Math.floor(Math.random() * 11);
-          muchSushi.splice(offset, 0, data);
+          muchSushi.push(data);
         }
-        _this.muchSushi = muchSushi;
+
+        _this.muchSushiA = _.shuffle(muchSushi);
+        _this.muchSushiB = _.shuffle(muchSushi);
       });
     },
     getUser: function getUser() {
@@ -47640,7 +47652,7 @@ var render = function() {
         _c(
           "div",
           { staticClass: "lanes" },
-          _vm._l(_vm.muchSushi, function(sushi, index) {
+          _vm._l(_vm.muchSushiA, function(sushi, index) {
             return _c("div", { staticClass: "lane", class: "lane" + index }, [
               sushi.id !== 0
                 ? _c("div", { staticClass: "dish" }, [
@@ -47650,7 +47662,7 @@ var render = function() {
                         src: sushi.img,
                         alt: "",
                         "data-toggle": "modal",
-                        "data-target": "#modal" + index
+                        "data-target": "#modal" + sushi.id
                       },
                       on: {
                         click: function($event) {
@@ -47665,16 +47677,45 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._l(_vm.muchSushi, function(sushi, index) {
+      _c("div", { staticClass: "lanes-wrapper" }, [
+        _c(
+          "div",
+          { staticClass: "lanes" },
+          _vm._l(_vm.muchSushiB, function(sushi, index) {
+            return _c("div", { staticClass: "lane", class: "lane" + index }, [
+              sushi.id !== 0
+                ? _c("div", { staticClass: "dish" }, [
+                    _c("img", {
+                      staticClass: "sushi",
+                      attrs: {
+                        src: sushi.img,
+                        alt: "",
+                        "data-toggle": "modal",
+                        "data-target": "#modal" + sushi.id
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.changeCartId(sushi.id)
+                        }
+                      }
+                    })
+                  ])
+                : _vm._e()
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.muchSushiA, function(sushi, index) {
         return _c(
           "div",
           {
             staticClass: "modal fade",
             attrs: {
-              id: "modal" + index,
+              id: "modal" + sushi.id,
               tabindex: "-1",
               role: "dialog",
-              "aria-labelledby": "modalLabel" + index,
+              "aria-labelledby": "modalLabel" + sushi.id,
               "aria-hidden": "true"
             }
           },

@@ -29,98 +29,98 @@
 }
 
 .lane1 {
-  -webkit-animation: animation 25s linear 0.4s infinite;
-          animation: animation 25s linear 0.4s infinite;
+  -webkit-animation: animation 25s linear 0.3s infinite;
+          animation: animation 25s linear 0.3s infinite;
 }
 
 .lane2 {
-  -webkit-animation: animation 25s linear 0.8s infinite;
-          animation: animation 25s linear 0.8s infinite;
+  -webkit-animation: animation 25s linear 0.6s infinite;
+          animation: animation 25s linear 0.6s infinite;
 }
 
 .lane3 {
+  -webkit-animation: animation 25s linear 0.9s infinite;
+          animation: animation 25s linear 0.9s infinite;
+}
+
+.lane4 {
   -webkit-animation: animation 25s linear 1.2s infinite;
           animation: animation 25s linear 1.2s infinite;
 }
 
-.lane4 {
-  -webkit-animation: animation 25s linear 1.6s infinite;
-          animation: animation 25s linear 1.6s infinite;
-}
-
 .lane5 {
-  -webkit-animation: animation 25s linear 2s infinite;
-          animation: animation 25s linear 2s infinite;
+  -webkit-animation: animation 25s linear 1.5s infinite;
+          animation: animation 25s linear 1.5s infinite;
 }
 
 .lane6 {
+  -webkit-animation: animation 25s linear 1.8s infinite;
+          animation: animation 25s linear 1.8s infinite;
+}
+
+.lane7 {
+  -webkit-animation: animation 25s linear 2.1s infinite;
+          animation: animation 25s linear 2.1s infinite;
+}
+
+.lane8 {
   -webkit-animation: animation 25s linear 2.4s infinite;
           animation: animation 25s linear 2.4s infinite;
 }
 
-.lane7 {
-  -webkit-animation: animation 25s linear 2.8s infinite;
-          animation: animation 25s linear 2.8s infinite;
-}
-
-.lane8 {
-  -webkit-animation: animation 25s linear 3.2s infinite;
-          animation: animation 25s linear 3.2s infinite;
-}
-
 .lane9 {
+  -webkit-animation: animation 25s linear 2.7s infinite;
+          animation: animation 25s linear 2.7s infinite;
+}
+
+.lane10 {
+  -webkit-animation: animation 25s linear 3s infinite;
+          animation: animation 25s linear 3s infinite;
+}
+
+.lane11 {
+  -webkit-animation: animation 25s linear 3.3s infinite;
+          animation: animation 25s linear 3.3s infinite;
+}
+
+.lane12 {
   -webkit-animation: animation 25s linear 3.6s infinite;
           animation: animation 25s linear 3.6s infinite;
 }
 
-.lane10 {
-  -webkit-animation: animation 25s linear 4s infinite;
-          animation: animation 25s linear 4s infinite;
+.lane13 {
+  -webkit-animation: animation 25s linear 3.9s infinite;
+          animation: animation 25s linear 3.9s infinite;
 }
 
-.lane11 {
-  -webkit-animation: animation 25s linear 4.4s infinite;
-          animation: animation 25s linear 4.4s infinite;
+.lane14 {
+  -webkit-animation: animation 25s linear 4.2s infinite;
+          animation: animation 25s linear 4.2s infinite;
 }
 
-.lane12 {
+.lane15 {
+  -webkit-animation: animation 25s linear 4.5s infinite;
+          animation: animation 25s linear 4.5s infinite;
+}
+
+.lane16 {
   -webkit-animation: animation 25s linear 4.8s infinite;
           animation: animation 25s linear 4.8s infinite;
 }
 
-.lane13 {
-  -webkit-animation: animation 25s linear 5.2s infinite;
-          animation: animation 25s linear 5.2s infinite;
-}
-
-.lane14 {
-  -webkit-animation: animation 25s linear 5.6s infinite;
-          animation: animation 25s linear 5.6s infinite;
-}
-
-.lane15 {
-  -webkit-animation: animation 25s linear 6s infinite;
-          animation: animation 25s linear 6s infinite;
-}
-
-.lane16 {
-  -webkit-animation: animation 25s linear 6.4s infinite;
-          animation: animation 25s linear 6.4s infinite;
-}
-
 .lane17 {
-  -webkit-animation: animation 25s linear 6.8s infinite;
-          animation: animation 25s linear 6.8s infinite;
+  -webkit-animation: animation 25s linear 5.1s infinite;
+          animation: animation 25s linear 5.1s infinite;
 }
 
 .lane18 {
-  -webkit-animation: animation 25s linear 7.2s infinite;
-          animation: animation 25s linear 7.2s infinite;
+  -webkit-animation: animation 25s linear 5.4s infinite;
+          animation: animation 25s linear 5.4s infinite;
 }
 
 .lane19 {
-  -webkit-animation: animation 25s linear 7.6s infinite;
-          animation: animation 25s linear 7.6s infinite;
+  -webkit-animation: animation 25s linear 5.7s infinite;
+          animation: animation 25s linear 5.7s infinite;
 }
 
 .dish {
@@ -145,7 +145,7 @@
 @-webkit-keyframes animation {
   0% {
     visibility: visible;
-    left: 60%;
+    left: 40%;
   }
 
   100% {
@@ -156,7 +156,7 @@
 @keyframes animation {
   0% {
     visibility: visible;
-    left: 60%;
+    left: 40%;
   }
 
   100% {

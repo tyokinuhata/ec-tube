@@ -2,15 +2,25 @@
     <div>
         <div class="lanes-wrapper">
             <div class="lanes">
-                <div class="lane" :class="'lane' + index" v-for="(sushi, index) in muchSushi">
+                <div class="lane" :class="'lane' + index" v-for="(sushi, index) in muchSushiA">
                     <div v-if="sushi.id !== 0" class="dish">
-                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + index" @click="changeCartId(sushi.id)">
+                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + sushi.id" @click="changeCartId(sushi.id)">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" :id="'modal' + index" tabindex="-1" role="dialog" :aria-labelledby="'modalLabel' + index" aria-hidden="true" v-for="(sushi, index) in muchSushi">
+        <div class="lanes-wrapper">
+            <div class="lanes">
+                <div class="lane" :class="'lane' + index" v-for="(sushi, index) in muchSushiB">
+                    <div v-if="sushi.id !== 0" class="dish">
+                        <img :src="sushi.img" alt="" class="sushi" data-toggle="modal" :data-target="'#modal' + sushi.id" @click="changeCartId(sushi.id)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" :id="'modal' + sushi.id" tabindex="-1" role="dialog" :aria-labelledby="'modalLabel' + sushi.id" aria-hidden="true" v-for="(sushi, index) in muchSushiA">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -43,7 +53,8 @@ export default {
       },
       msg: '',
       user: [],
-      muchSushi: [],
+      muchSushiA: [],
+      muchSushiB: [],
       dishes: 0,
     }
   },
@@ -64,12 +75,13 @@ export default {
             'img': '',
             'price': '',
           }
-          let offset
+
           for (let i = 0; i < 8; i++) {
-            offset = Math.floor(Math.random() * 11)
-            muchSushi.splice(offset, 0, data)
+            muchSushi.push(data)
           }
-          this.muchSushi = muchSushi
+
+          this.muchSushiA = _.shuffle(muchSushi)
+          this.muchSushiB = _.shuffle(muchSushi)
         })
     },
     getUser() {
