@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CartsStoreRequest;
+use App\Http\Requests\Carts\StoreRequest;
+use App\Http\Requests\Carts\DeleteRequest;
 use App\Models\Cart;
+use Illuminate\Http\Request;
 use Auth;
 
 class CartsController extends Controller
@@ -28,7 +30,7 @@ class CartsController extends Controller
         return view('carts.arigato');
     }
 
-    public function store(CartsStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         Cart::updateOrCreate([
             'user_id' => $request->user_id,
@@ -57,10 +59,17 @@ class CartsController extends Controller
         return $count;
     }
 
+    public function delete(DeleteRequest $request)
+    {
+        Cart::where('user_id', Auth::user()->id)->where('food_id', $request->food_id)->delete();
+
+        return redirect('/carts/oaiso');
+    }
+
     public function oaiso()
     {
         Cart::where('user_id', Auth::user()->id)->delete();
 
-        return redirect('/carts/arigato');
+        return redirect('/carts');
     }
 }

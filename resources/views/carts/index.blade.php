@@ -11,13 +11,21 @@
                         <td>
                             <img src="{{ url($cart->food->img) }}" alt="" width="150">
                         </td>
-                        <td>{{ $cart->food->name }}</td>
-                        <td>{{ $cart->number }}皿</td>
-                        <td>{{ $cart->food->price * $cart->number }}円</td>
+                        <td class="pt-5">{{ $cart->food->name }}</td>
+                        <td class="pt-5">{{ $cart->number }}皿</td>
+                        <td class="pt-5">{{ $cart->food->price * $cart->number }}円</td>
+                        <td class="pt-5">
+                            <form method="POST" action="{{ url('/carts/delete') }}">
+                                @csrf
+                                <input type="hidden" name="food_id" value="{{ $cart->food_id }}">
+                                <button type="submit" class="btn btn-danger">食べてないことにする</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 <tr>
                     <td>合計</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>{{ $carts->total_price }}円</td>

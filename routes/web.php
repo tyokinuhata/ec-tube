@@ -31,6 +31,8 @@ Route::group([ 'prefix' => 'carts', 'middleware' => 'auth' ], function () {
 
     Route::get('/count', 'CartsController@count');
 
+    Route::post('/delete', 'CartsController@delete');
+
     Route::post('/oaiso', 'CartsController@oaiso');
 });
 
