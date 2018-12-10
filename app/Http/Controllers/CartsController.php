@@ -63,10 +63,10 @@ class CartsController extends Controller
     {
         Cart::where('user_id', Auth::user()->id)->where('food_id', $request->food_id)->delete();
 
-        return redirect('/carts/oaiso');
+        return redirect('/carts');
     }
 
-    public function oaiso()
+    public function oaiso(Request $request)
     {
         Cart::where('user_id', Auth::user()->id)->delete();
 

@@ -34,7 +34,7 @@
             <form method="POST" action="{{ url('carts/oaiso') }}">
                 @csrf
                 <input type="hidden" name="total_price" value="{{ $carts->total_price }}">
-                <button class="btn btn-primary">おあいそ</button>
+                <button type="submit" class="btn btn-primary">おあいそ</button>
             </form>
         @endif
     </div>
