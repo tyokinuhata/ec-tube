@@ -1,2 +1,2 @@
-# SUSHI CUBE
-お寿司屋さん
+# SUSHI 🍣 CUBE
+ヘイ！らっしゃい！
