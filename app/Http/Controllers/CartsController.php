@@ -70,6 +70,6 @@ class CartsController extends Controller
     {
         Cart::where('user_id', Auth::user()->id)->delete();
 
-        return redirect('/carts');
+        return redirect('/carts/arigato');
     }
 }
